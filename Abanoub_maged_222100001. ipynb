@@ -1,0 +1,218 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "Ou3T1pgwdRcs"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "35CAXeQnfOEg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "def cosine_similarity(user1, user2):\n",
+        "    \"\"\"Calculate cosine similarity between two users\"\"\"\n",
+        "\n",
+        "    # Get common rated items (non-zero entries)\n",
+        "    mask = (user1 != 0) & (user2 != 0)\n",
+        "    if not np.any(mask):\n",
+        "        return 0\n",
+        "\n",
+        "    u1 = user1[mask]\n",
+        "    u2 = user2[mask]\n",
+        "\n",
+        "    # Calculate dot product\n",
+        "    dot_product = np.sum(u1 * u2)\n",
+        "\n",
+        "    # Calculate magnitudes\n",
+        "    magnitude1 = np.sqrt(np.sum(u1 ** 2))\n",
+        "    magnitude2 = np.sqrt(np.sum(u2 ** 2))\n",
+        "\n",
+        "    # Avoid division by zero\n",
+        "    if magnitude1 == 0 or magnitude2 == 0:\n",
+        "        return 0\n",
+        "\n",
+        "    # Calculate cosine similarity\n",
+        "    return dot_product / (magnitude1 * magnitude2)\n",
+        "\n",
+        "\n",
+        "# Example usage:\n",
+        "user1 = np.array([5, 3, 0, 0, 2])\n",
+        "user2 = np.array([4, 0, 0, 3, 1])\n",
+        "\n",
+        "similarity = cosine_similarity(user1, user2)\n",
+        "print(\"Cosine similarity:\", similarity)"
+      ],
+      "metadata": {
+        "id": "9NE-BO5-fNqB",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e4fa4c15-18d8-4148-dec7-8300d1ae58b1"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cosine similarity: 0.9908301680442991\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 0 represents missing ratings\n",
+        "user_A = np.array([5, 3, 0, 4, 0, 2])\n",
+        "user_B = np.array([3, 0, 2, 3, 3, 0])\n",
+        "user_C = np.array([4, 3, 4, 3, 5, 3])\n",
+        "\n",
+        "# Compute cosine similarities\n",
+        "similarity_AB = cosine_similarity(user_A, user_B)\n",
+        "similarity_AC = cosine_similarity(user_A, user_C)\n",
+        "\n",
+        "# Display results\n",
+        "print(f\"Cosine Similarity A-B: {similarity_AB:.3f}\")\n",
+        "print(f\"Cosine Similarity A-C: {similarity_AC:.3f}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nFPASpvwgvBb",
+        "outputId": "4bfbbd16-882c-4583-96e4-c2fff5964ac6"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cosine Similarity A-B: 0.994\n",
+            "Cosine Similarity A-C: 0.975\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "py_TzKpDfNsY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "_-H8fL05fNvA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "xxt5k46ZfNxY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "NFIkjYcJfN0A"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "gUqkcl8EfN2Y"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "xaf7Su2-fN4w"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}   },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "py_TzKpDfNsY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "_-H8fL05fNvA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "xxt5k46ZfNxY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "NFIkjYcJfN0A"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "gUqkcl
